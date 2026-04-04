@@ -804,7 +804,7 @@ footer {
 /* MUSIC BUTTON */
 .music-btn {
   position: fixed;
-  bottom: 2rem;
+  bottom: 2.2rem;
   left: 2rem;
   display: flex;
   align-items: center;
