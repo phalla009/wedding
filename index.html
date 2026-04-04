@@ -38,7 +38,6 @@
         alt="Jasmine Deco"
         class="hero-deco right"
       />
-
       <div class="hero-content">
         <p class="hero-eyebrow">Together Forever</p>
         <h1 class="hero-names">
@@ -75,33 +74,111 @@
       </div>
     </div>
 
+    <!-- STORY SECTION — BOOK with flip pages -->
     <section class="story" id="story">
       <p class="section-label reveal">Our Story</p>
       <h2 class="section-title reveal">How It All <em>Began</em></h2>
       <div class="section-divider reveal"></div>
-      <div class="story-grid">
-        <div class="story-img-wrap reveal">
-          <div class="story-img-placeholder"></div>
-          <div class="story-img-frame"></div>
+
+      <div class="book-outer reveal">
+        <div class="pages-stack" id="pagesStack">
+          <!-- PAGE 1 — Image -->
+          <div class="bpage active" id="page1">
+            <div class="spine-bar">
+              <span class="spine-bar-text">Me &amp; Crush · 2026</span>
+            </div>
+            <div class="bpage-inner">
+              <div class="chapter-label">Chapter One</div>
+              <div class="chapter-title">A Rainy <em>Tuesday</em></div>
+              <div class="chapter-divider"></div>
+              <div class="img-frame">
+                <div class="story-img-placeholder"></div>
+              </div>
+              <div class="img-caption">The bookstore where it all began</div>
+            </div>
+            <div class="page-num-row">
+              <span class="bpage-num">· 12 ·</span>
+              <button class="page-nav-btn" onclick="goToPage(2)">
+                Read Story <span class="nav-arrow">›</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- PAGE 2 — Story text -->
+          <div class="bpage" id="page2">
+            <div class="spine-bar">
+              <span class="spine-bar-text">Me &amp; Crush · 2026</span>
+            </div>
+            <div style="position: relative; overflow: hidden">
+              <div class="rulings-bg"></div>
+              <div class="bpage-inner">
+                <div class="story-text">
+                  <p>
+                    It was a rainy Tuesday in the city when Sarah and James
+                    first locked eyes across a crowded bookstore. He was
+                    reaching for the last copy of a novel she had been searching
+                    for all week — and somehow, that small collision of fate
+                    changed everything.
+                  </p>
+                  <p>
+                    They spent the next three hours talking over coffee,
+                    forgetting the rain entirely. What started as a conversation
+                    about books became a conversation about life, dreams, and
+                    every little thing in between.
+                  </p>
+                  <div class="story-quote">
+                    "What started as a conversation about books became a
+                    conversation about everything."
+                  </div>
+                  <p>
+                    Three years later, on a quiet evening walk through the
+                    golden hills of Tuscany, James dropped to one knee — and
+                    Sarah said yes before he could finish asking.
+                  </p>
+                </div>
+              </div>
+              <div class="page-fold"></div>
+            </div>
+            <div class="page-num-row">
+              <button class="page-nav-btn" onclick="goToPage(1)">
+                <span class="nav-arrow">‹</span> Back
+              </button>
+              <span class="bpage-num">· 13 ·</span>
+              <button class="page-nav-btn" onclick="goToPage(3)">
+                Next <span class="nav-arrow">›</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- PAGE 3 — Closing -->
+          <div class="bpage" id="page3">
+            <div class="spine-bar">
+              <span class="spine-bar-text">Me &amp; Crush · 2026</span>
+            </div>
+            <div class="bpage-end">
+              <div class="end-heart">♥</div>
+              <div class="end-title">Forever <em>Begins</em></div>
+              <div class="end-sub">September 14, 2026</div>
+              <div class="end-quote">
+                "Now, surrounded by the people they love most, they invite you
+                to witness the next beautiful chapter."
+              </div>
+            </div>
+            <div class="page-num-row">
+              <button class="page-nav-btn" onclick="goToPage(2)">
+                <span class="nav-arrow">‹</span> Back
+              </button>
+              <span class="bpage-num">· 14 ·</span>
+              <span></span>
+            </div>
+          </div>
         </div>
-        <div class="story-text reveal">
-          <p>
-            It was a rainy Tuesday in the city when Sarah and James first locked
-            eyes across a crowded bookstore. He was reaching for the last copy
-            of a novel she had been searching for all week — and somehow, that
-            small collision of fate changed everything.
-          </p>
-          <p>
-            They spent the next three hours talking over coffee, forgetting the
-            rain entirely. What started as a conversation about books became a
-            conversation about life, dreams, and every little thing in between.
-          </p>
-          <p>
-            Three years later, on a quiet evening walk through the golden hills
-            of Tuscany, James dropped to one knee — and Sarah said yes before he
-            could finish asking. Now, surrounded by the people they love most,
-            they invite you to witness the next beautiful chapter.
-          </p>
+
+        <!-- Dot indicators -->
+        <div class="dot-nav">
+          <button class="dot active" onclick="goToPage(1)" id="dot1"></button>
+          <button class="dot" onclick="goToPage(2)" id="dot2"></button>
+          <button class="dot" onclick="goToPage(3)" id="dot3"></button>
         </div>
       </div>
     </section>
@@ -156,15 +233,12 @@
             class="gallery-img"
           />
         </div>
-
         <div class="gallery-item">
           <img src="image/photo/2.jpg" alt="Paris Trip" class="gallery-img" />
         </div>
-
         <div class="gallery-item">
           <img src="image/photo/3.jpg" alt="Engagement" class="gallery-img" />
         </div>
-
         <div class="gallery-item">
           <img
             src="image/photo/4.jpg"
@@ -179,7 +253,6 @@
             class="gallery-img"
           />
         </div>
-
         <div class="gallery-item">
           <img src="image/photo/6.jpg" alt="Just Us" class="gallery-img" />
         </div>
@@ -190,7 +263,6 @@
       <p class="section-label reveal">Where & When</p>
       <h2 class="section-title reveal">The <em>Location</em></h2>
       <div class="section-divider reveal"></div>
-
       <div
         class="rsvp-form reveal"
         style="padding: 20px; max-width: 900px; margin: 0 auto"
@@ -218,7 +290,6 @@
           >
           </iframe>
         </div>
-
         <div id="address-details" style="text-align: center">
           <div style="margin-bottom: 2rem">
             <h3
@@ -241,11 +312,9 @@
                 letter-spacing: 0.5px;
               "
             >
-              Khan Chamkarmon, Phnom Penh<br />
-              Kingdom of Cambodia
+              Khan Chamkarmon, Phnom Penh<br />Kingdom of Cambodia
             </p>
           </div>
-
           <div style="margin-bottom: 2.5rem">
             <p
               style="
@@ -270,7 +339,6 @@
               11.5549° N, 104.9314° E
             </p>
           </div>
-
           <div
             style="
               display: flex;
@@ -295,7 +363,7 @@
         </div>
       </div>
     </section>
-    <!-- GIFT / QR PAY -->
+
     <section class="gift-section" id="gift">
       <p class="section-label reveal">Send a Gift</p>
       <h2 class="section-title reveal">Wedding <em>Gift</em></h2>
@@ -305,12 +373,10 @@
         contribute to our honeymoon or new home, you can send a gift digitally —
         quickly and easily via QR code.
       </p>
-
       <div class="qr-cards">
         <div class="qr-card reveal">
           <div class="qr-name">កូនស្រី</div>
           <div class="qr-handle">KhQR · Crush</div>
-
           <div class="qr-box">
             <img
               src="/image/qr/qr1.jpg"
@@ -318,17 +384,14 @@
               style="width: 100%; height: 100%; object-fit: cover"
             />
           </div>
-
           <div class="qr-note">Scan to pay via KhQR</div>
           <button class="qr-copy-btn" onclick="copyText('0964775515', this)">
             Copy Account No.
           </button>
         </div>
-
         <div class="qr-card reveal">
           <div class="qr-name">កូនប្រុស</div>
           <div class="qr-handle">KhQR · Me</div>
-
           <div class="qr-box">
             <img
               src="/image/qr/qr2.jpg"
@@ -336,36 +399,33 @@
               style="width: 100%; height: 100%; object-fit: cover"
             />
           </div>
-
           <div class="qr-note">Scan to pay via KhQR</div>
           <button class="qr-copy-btn" onclick="copyText('0964775515', this)">
             Copy Account No.
           </button>
         </div>
       </div>
-
-      <!-- Bank Transfer -->
       <div class="gift-bank reveal">
         <div class="gift-bank-title">Bank Transfer Details</div>
         <div class="bank-row">
-          <span class="bank-label">Account Name</span>
-          <span class="bank-val">Me & Crush</span>
+          <span class="bank-label">Account Name</span
+          ><span class="bank-val">Me & Crush</span>
         </div>
         <div class="bank-row">
-          <span class="bank-label">Account No.</span>
-          <span class="bank-val">000 1234 5678 90</span>
+          <span class="bank-label">Account No.</span
+          ><span class="bank-val">000 1234 5678 90</span>
         </div>
         <div class="bank-row">
-          <span class="bank-label">Bank</span>
-          <span class="bank-val">ABA Bank Cambodia</span>
+          <span class="bank-label">Bank</span
+          ><span class="bank-val">ABA Bank Cambodia</span>
         </div>
         <div class="bank-row">
-          <span class="bank-label">Currency</span>
-          <span class="bank-val">KHR / USD</span>
+          <span class="bank-label">Currency</span
+          ><span class="bank-val">KHR / USD</span>
         </div>
         <div class="bank-row">
-          <span class="bank-label">Reference</span>
-          <span class="bank-val">Wedding Gift</span>
+          <span class="bank-label">Reference</span
+          ><span class="bank-val">Wedding Gift</span>
         </div>
       </div>
     </section>
@@ -377,6 +437,7 @@
         Made with love ♥ Please reach us at hello@sarahandjames.com
       </div>
     </footer>
+
     <audio id="weddingMusic" loop>
       <source src="/image/song/wedding.mp4" type="video/mp4" />
     </audio>
@@ -392,6 +453,7 @@
     >
       &#8679;
     </button>
+
     <script src="main.js"></script>
   </body>
 </html>

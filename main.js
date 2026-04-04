@@ -143,7 +143,7 @@ window.addEventListener("scroll", () => {
 });
 
 // ============================================================
-// MUSIC PLAYER — simple & reliable
+// MUSIC PLAYER
 // ============================================================
 const music = document.getElementById("weddingMusic");
 const musicBtn = document.getElementById("musicBtn");
@@ -166,15 +166,12 @@ function setPlayingUI(playing) {
   }
 }
 
-// Single source of truth — read from audio element directly
 musicBtn.addEventListener("click", function () {
   if (!music.paused) {
-    // Currently playing → stop it
     music.pause();
     music.currentTime = 0;
     setPlayingUI(false);
   } else {
-    // Currently stopped → play it
     music
       .play()
       .then(() => setPlayingUI(true))
@@ -183,3 +180,79 @@ musicBtn.addEventListener("click", function () {
 });
 
 music.addEventListener("ended", () => setPlayingUI(false));
+
+// ============================================================
+// BOOK — FLIP PAGES
+// ============================================================
+let currentPage = 1;
+const totalPages = 3;
+
+function goToPage(next) {
+  if (next === currentPage || next < 1 || next > totalPages) return;
+
+  const prevEl = document.getElementById("page" + currentPage);
+  const nextEl = document.getElementById("page" + next);
+  const goingForward = next > currentPage;
+
+  // Animate out current page
+  prevEl.style.transition = "opacity 0.35s ease, transform 0.35s ease";
+  prevEl.style.opacity = "0";
+  prevEl.style.transform = goingForward
+    ? "translateX(-55px) scale(0.97)"
+    : "translateX(55px) scale(0.97)";
+  prevEl.style.position = "absolute";
+  prevEl.style.pointerEvents = "none";
+
+  // Prepare next page off-screen
+  nextEl.style.transition = "none";
+  nextEl.style.opacity = "0";
+  nextEl.style.transform = goingForward
+    ? "translateX(55px) scale(0.97)"
+    : "translateX(-55px) scale(0.97)";
+  nextEl.style.position = "relative";
+
+  // Animate in next page
+  setTimeout(() => {
+    nextEl.style.transition = "opacity 0.35s ease, transform 0.35s ease";
+    nextEl.style.opacity = "1";
+    nextEl.style.transform = "translateX(0) scale(1)";
+    nextEl.style.pointerEvents = "auto";
+
+    // Clean up after animation
+    setTimeout(() => {
+      prevEl.classList.remove("active");
+      prevEl.style.cssText = "";
+      nextEl.classList.add("active");
+      nextEl.style.cssText = "";
+    }, 370);
+  }, 20);
+
+  // Update dots
+  document.getElementById("dot" + currentPage).classList.remove("active");
+  document.getElementById("dot" + next).classList.add("active");
+  currentPage = next;
+}
+
+// Swipe support for mobile
+(function () {
+  const stack = document.getElementById("pagesStack");
+  if (!stack) return;
+  let startX = 0;
+  stack.addEventListener(
+    "touchstart",
+    (e) => {
+      startX = e.touches[0].clientX;
+    },
+    { passive: true },
+  );
+  stack.addEventListener(
+    "touchend",
+    (e) => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        goToPage(diff > 0 ? currentPage + 1 : currentPage - 1);
+      }
+    },
+    { passive: true },
+  );
+})();
