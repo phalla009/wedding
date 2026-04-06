@@ -1,30 +1,211 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Me & Crush — Forever Begins</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&family=Hanuman:wght@300;400;700&family=Moul&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      [data-lang="km"] body {
+        font-family: "Hanuman", serif;
+      }
+      [data-lang="km"] .nav-links a,
+      [data-lang="km"] .hero-eyebrow,
+      [data-lang="km"] .hero-date,
+      [data-lang="km"] .section-label,
+      [data-lang="km"] .countdown-label,
+      [data-lang="km"] .countdown-unit,
+      [data-lang="km"] .event-date,
+      [data-lang="km"] .event-detail,
+      [data-lang="km"] .qr-handle,
+      [data-lang="km"] .qr-note,
+      [data-lang="km"] .bank-label,
+      [data-lang="km"] .bank-val,
+      [data-lang="km"] .footer-date,
+      [data-lang="km"] .footer-note,
+      [data-lang="km"] .hero-cta,
+      [data-lang="km"] .chapter-label,
+      [data-lang="km"] .story-text p,
+      [data-lang="km"] .gift-intro,
+      [data-lang="km"] .img-caption,
+      [data-lang="km"] .end-sub,
+      [data-lang="km"] .bpage-num,
+      [data-lang="km"] .page-nav-btn {
+        font-family: "Hanuman", serif;
+        letter-spacing: 0.02em;
+      }
+      [data-lang="km"] .section-title,
+      [data-lang="km"] .hero-names,
+      [data-lang="km"] .hero-tagline,
+      [data-lang="km"] .hero-amp,
+      [data-lang="km"] .event-name,
+      [data-lang="km"] .chapter-title,
+      [data-lang="km"] .story-quote,
+      [data-lang="km"] .end-title,
+      [data-lang="km"] .end-quote,
+      [data-lang="km"] .footer-names,
+      [data-lang="km"] .gift-bank-title,
+      [data-lang="km"] .nav-logo {
+        font-family: "Moul", serif;
+        font-style: normal;
+        font-weight: 300;
+      }
+      [data-lang="km"] .section-title em,
+      [data-lang="km"] .hero-names span,
+      [data-lang="km"] .chapter-title em,
+      [data-lang="km"] .end-title em {
+        font-style: normal;
+      }
+      [data-lang="km"] .hero-names {
+        font-size: clamp(2rem, 7vw, 3rem);
+        line-height: 1.2;
+      }
+      [data-lang="km"] .section-title {
+        font-size: clamp(1.6rem, 4vw, 2.8rem);
+        line-height: 1.5;
+      }
+      [data-lang="km"] .chapter-title {
+        font-size: 1.3rem;
+        line-height: 1.6;
+      }
+      [data-lang="km"] .end-title {
+        font-size: 1.4rem;
+        line-height: 1.5;
+      }
+      [data-lang="km"] .story-quote,
+      [data-lang="km"] .end-quote {
+        font-size: 0.88rem;
+        line-height: 1.9;
+      }
+      [data-lang="km"] .nav-links a {
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+      }
+      [data-lang="km"] .hero-eyebrow {
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+      }
+      [data-lang="km"] .hero-date {
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+      }
+      [data-lang="km"] .countdown-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+      }
+      [data-lang="km"] .countdown-unit {
+        font-size: 0.65rem;
+        letter-spacing: 0.05em;
+      }
+      [data-lang="km"] .section-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+      }
+      [data-lang="km"] .gift-intro {
+        font-size: 0.92rem;
+        line-height: 2;
+      }
+      [data-lang="km"] .event-detail {
+        font-size: 0.85rem;
+        line-height: 2;
+      }
+      [data-lang="km"] .footer-names {
+        font-size: 1.8rem;
+      }
+
+      .lang-toggle {
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(184, 149, 106, 0.4);
+        border-radius: 30px;
+        overflow: hidden;
+        margin-left: 2rem;
+        flex-shrink: 0;
+      }
+      .lang-btn {
+        padding: 0.35rem 0.9rem;
+        background: none;
+        border: none;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.62rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--deep);
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .lang-btn.active {
+        background: var(--gold);
+        color: #fff;
+      }
+      .lang-btn:not(.active):hover {
+        color: var(--rose);
+      }
+      .lang-divider {
+        width: 1px;
+        height: 18px;
+        background: rgba(184, 149, 106, 0.3);
+        flex-shrink: 0;
+      }
+      .lang-fade {
+        animation: langFadeIn 0.45s ease forwards;
+      }
+      @keyframes langFadeIn {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .lang-toggle {
+          margin-left: 0.5rem;
+        }
+        .lang-btn {
+          padding: 0.3rem 0.6rem;
+          font-size: 0.55rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <nav>
-      <div class="nav-logo">ME & Crush</div>
+      <div class="nav-logo">
+        <span data-en="ME &amp; Crush" data-km="ខ្ញុំ &amp; ស្នេហា"
+          >ME &amp; Crush</span
+        >
+      </div>
       <div class="menu-toggle" id="mobile-menu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </div>
       <ul class="nav-links">
-        <li><a href="#story">Story</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#location">Location</a></li>
-        <li><a href="#gift">Gift</a></li>
+        <li><a href="#story" data-en="Story" data-km="រឿងរ៉ាវ">Story</a></li>
+        <li>
+          <a href="#events" data-en="Events" data-km="ព្រឹត្តិការណ៍">Events</a>
+        </li>
+        <li>
+          <a href="#gallery" data-en="Gallery" data-km="វិចិត្រសាល">Gallery</a>
+        </li>
+        <li>
+          <a href="#location" data-en="Location" data-km="ទីតាំង">Location</a>
+        </li>
+        <li><a href="#gift" data-en="Gift" data-km="អំណោយ">Gift</a></li>
       </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">
+          EN
+        </button>
+        <div class="lang-divider"></div>
+        <button class="lang-btn" id="btn-km" onclick="setLang('km')">
+          ខ្មែរ
+        </button>
+      </div>
     </nav>
 
     <section class="hero">
@@ -39,57 +220,107 @@
         class="hero-deco right"
       />
       <div class="hero-content">
-        <p class="hero-eyebrow">Together Forever</p>
+        <p
+          class="hero-eyebrow"
+          data-en="Together Forever"
+          data-km="រួមជីវិតអស់កល្ប"
+        >
+          Together Forever
+        </p>
         <h1 class="hero-names">
-          <span>Me</span>
+          <span data-en="Me" data-km="ខ្ញុំ">Me</span>
           <em class="hero-amp">&amp;</em>
-          <span>Crush</span>
+          <span data-en="Crush" data-km="ស្នេហា">Crush</span>
         </h1>
-        <p class="hero-date">September 14, 2026 · Phnom Penh, Cambodia</p>
+        <p
+          class="hero-date"
+          data-en="September 14, 2026 · Phnom Penh, Cambodia"
+          data-km="១៤ កញ្ញា ២០២៦ · ភ្នំពេញ កម្ពុជា"
+        >
+          September 14, 2026 · Phnom Penh, Cambodia
+        </p>
         <div class="hero-divider"></div>
-        <p class="hero-tagline">"Two souls, one heart, forever intertwined."</p>
-        <a href="#location" class="hero-cta">location</a>
+        <p
+          class="hero-tagline"
+          data-en='"Two souls, one heart, forever intertwined."'
+          data-km='"ពីរដួងវិញ្ញាណ ចិត្តតែមួយ ស្នេហ៍ពេញអស់ជាតិ"'
+        >
+          "Two souls, one heart, forever intertwined."
+        </p>
+        <a href="#location" class="hero-cta" data-en="Location" data-km="ទីតាំង"
+          >Location</a
+        >
       </div>
     </section>
 
     <div class="countdown-section">
-      <p class="countdown-label">Counting the moments</p>
+      <p
+        class="countdown-label"
+        data-en="Counting the moments"
+        data-km="រាប់ពេលវេលា"
+      >
+        Counting the moments
+      </p>
       <div class="countdown-grid">
         <div class="countdown-item">
           <div class="countdown-num" id="days">--</div>
-          <div class="countdown-unit">Days</div>
+          <div class="countdown-unit" data-en="Days" data-km="ថ្ងៃ">Days</div>
         </div>
         <div class="countdown-item">
           <div class="countdown-num" id="hours">--</div>
-          <div class="countdown-unit">Hours</div>
+          <div class="countdown-unit" data-en="Hours" data-km="ម៉ោង">Hours</div>
         </div>
         <div class="countdown-item">
           <div class="countdown-num" id="minutes">--</div>
-          <div class="countdown-unit">Minutes</div>
+          <div class="countdown-unit" data-en="Minutes" data-km="នាទី">
+            Minutes
+          </div>
         </div>
         <div class="countdown-item">
           <div class="countdown-num" id="seconds">--</div>
-          <div class="countdown-unit">Seconds</div>
+          <div class="countdown-unit" data-en="Seconds" data-km="វិនាទី">
+            Seconds
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- STORY SECTION — BOOK with flip pages -->
     <section class="story" id="story">
-      <p class="section-label reveal">Our Story</p>
-      <h2 class="section-title reveal">How It All <em>Began</em></h2>
+      <p
+        class="section-label reveal"
+        data-en="Our Story"
+        data-km="រឿងរ៉ាវរបស់យើង"
+      >
+        Our Story
+      </p>
+      <h2 class="section-title reveal">
+        <span data-en="How It All " data-km="ការចាប់ផ្តើម">How It All </span
+        ><em data-en="Began" data-km="ស្នេហ៍">Began</em>
+      </h2>
       <div class="section-divider reveal"></div>
-
       <div class="book-outer reveal">
         <div class="pages-stack" id="pagesStack">
-          <!-- PAGE 1 — Image -->
           <div class="bpage active" id="page1">
             <div class="spine-bar">
-              <span class="spine-bar-text">Me &amp; Crush · 2026</span>
+              <span
+                class="spine-bar-text"
+                data-en="Me &amp; Crush · 2026"
+                data-km="ខ្ញុំ &amp; ស្នេហា · ២០២៦"
+                >Me &amp; Crush · 2026</span
+              >
             </div>
             <div class="bpage-inner">
-              <div class="chapter-label">Chapter One</div>
-              <div class="chapter-title">A Rainy <em>Tuesday</em></div>
+              <div
+                class="chapter-label"
+                data-en="Chapter One"
+                data-km="ជំពូកទី១"
+              >
+                Chapter One
+              </div>
+              <div class="chapter-title">
+                <span data-en="A Rainy " data-km="ថ្ងៃអង្គារ">A Rainy </span
+                ><em data-en="Tuesday" data-km="ភ្លៀងធ្លាក់">Tuesday</em>
+              </div>
               <div class="chapter-divider"></div>
               <div class="img-frame">
                 <img
@@ -104,46 +335,70 @@
                   "
                 />
               </div>
-              <div class="img-caption">The bookstore where it all began</div>
+              <div
+                class="img-caption"
+                data-en="The bookstore where it all began"
+                data-km="ហាងលក់សៀវភៅ ដែលជាការចាប់ផ្តើម"
+              >
+                The bookstore where it all began
+              </div>
             </div>
             <div class="page-num-row">
-              <span class="bpage-num">· 12 ·</span>
+              <span class="bpage-num">· 1 ·</span>
               <button class="page-nav-btn" onclick="goToPage(2)">
-                Read Story <span class="nav-arrow">›</span>
+                <span data-en="Read Story" data-km="អានរឿង">Read Story</span>
+                <span class="nav-arrow">›</span>
               </button>
             </div>
           </div>
 
-          <!-- PAGE 2 — Story text -->
           <div class="bpage" id="page2">
             <div class="spine-bar">
-              <span class="spine-bar-text">Me &amp; Crush · 2026</span>
+              <span
+                class="spine-bar-text"
+                data-en="Me &amp; Crush · 2026"
+                data-km="ខ្ញុំ &amp; ស្នេហា · ២០២៦"
+                >Me &amp; Crush · 2026</span
+              >
             </div>
             <div style="position: relative; overflow: hidden">
               <div class="rulings-bg"></div>
               <div class="bpage-inner">
                 <div class="story-text">
-                  <p>
-                    It was a rainy Tuesday in the city when Sarah and James
-                    first locked eyes across a crowded bookstore. He was
-                    reaching for the last copy of a novel she had been searching
-                    for all week — and somehow, that small collision of fate
-                    changed everything.
+                  <p
+                    data-en="It was a rainy Tuesday in the city when Crush and Me first locked eyes across a crowded bookstore. He was reaching for the last copy of a novel she had been searching for all week — and somehow, that small collision of fate changed everything."
+                    data-km="វាគឺជាថ្ងៃអង្គារដ៏ត្រជាក់ត្រជុំ និងមានភ្លៀងធ្លាក់ក្នុងទីក្រុង នៅពេលដែល Crush និង Me បានប្រសព្វភ្នែកគ្នាជាលើកដំបូង នៅក្នុងបណ្ណាគារដ៏អ៊ូអរមួយ។ គាត់បានលូកដៃចាប់យកសៀវភៅចុងក្រោយដែលនាងបានតាមរកពេញមួយសប្តាហ៍ — ហើយជួបដោយចៃដន្យតូចមួយនេះហើយ ដែលបានផ្លាស់ប្តូរអ្វីៗគ្រប់យ៉ាង។"
+                  >
+                    It was a rainy Tuesday in the city when Crush and Me first
+                    locked eyes across a crowded bookstore. He was reaching for
+                    the last copy of a novel she had been searching for all week
+                    — and somehow, that small collision of fate changed
+                    everything.
                   </p>
-                  <p>
+                  <p
+                    data-en="They spent the next three hours talking over coffee, forgetting the rain entirely. What started as a conversation about books became a conversation about life, dreams, and every little thing in between."
+                    data-km="ពួកគេបានចំណាយពេល ៣ ម៉ោងបន្ទាប់ជជែកគ្នាក្រេបរសជាតិកាហ្វេ ដោយភ្លេចអស់នូវភាពរញ៉េរញ៉ៃនៃតំណក់ទឹកភ្លៀងនៅខាងក្រៅ។ អ្វីដែលចាប់ផ្តើមចេញពីការជជែកអំពីសៀវភៅ បានក្លាយជាការជជែកអំពីជីវិត ក្តីសុបិន និងរឿងរ៉ាវតូចតាចគ្រប់យ៉ាងដែលនៅចន្លោះនោះ។"
+                  >
                     They spent the next three hours talking over coffee,
                     forgetting the rain entirely. What started as a conversation
                     about books became a conversation about life, dreams, and
                     every little thing in between.
                   </p>
-                  <div class="story-quote">
+                  <div
+                    class="story-quote"
+                    data-en='"What started as a conversation about books became a conversation about everything."'
+                    data-km='"អ្វីដែលចាប់ផ្តើមជាការសន្ទនាអំពីសៀវភៅ ក្លាយជាការសន្ទនាអំពីអ្វីៗទាំងអស់"'
+                  >
                     "What started as a conversation about books became a
                     conversation about everything."
                   </div>
-                  <p>
+                  <p
+                    data-en="Three years later, on a quiet evening walk through the golden hills of Tuscany, Me dropped to one knee — and Crush said yes before he could finish asking."
+                    data-km="បីឆ្នាំក្រោយមក នៅពេលដើរលេងល្ងាច ស្ងាត់ស្ងៀម ជេម ជំនង់ ដោយជង្គង់ — ហើយ សារ៉ា ឆ្លើយ យល់ព្រម មុននឹងគាត់ និយាយអស់ទៅ។"
+                  >
                     Three years later, on a quiet evening walk through the
-                    golden hills of Tuscany, James dropped to one knee — and
-                    Sarah said yes before he could finish asking.
+                    golden hills of Tuscany, Me dropped to one knee — and Crush
+                    said yes before he could finish asking.
                   </p>
                 </div>
               </div>
@@ -151,40 +406,58 @@
             </div>
             <div class="page-num-row">
               <button class="page-nav-btn" onclick="goToPage(1)">
-                <span class="nav-arrow">‹</span> Back
+                <span class="nav-arrow">‹</span>
+                <span data-en="Back" data-km="ត្រឡប់">Back</span>
               </button>
-              <span class="bpage-num">· 13 ·</span>
+              <span class="bpage-num">· 2 ·</span>
               <button class="page-nav-btn" onclick="goToPage(3)">
-                Next <span class="nav-arrow">›</span>
+                <span data-en="Next" data-km="បន្ទាប់">Next</span>
+                <span class="nav-arrow">›</span>
               </button>
             </div>
           </div>
 
-          <!-- PAGE 3 — Closing -->
           <div class="bpage" id="page3">
             <div class="spine-bar">
-              <span class="spine-bar-text">Me &amp; Crush · 2026</span>
+              <span
+                class="spine-bar-text"
+                data-en="Me &amp; Crush · 2026"
+                data-km="ខ្ញុំ &amp; ស្នេហា · ២០២៦"
+                >Me &amp; Crush · 2026</span
+              >
             </div>
             <div class="bpage-end">
               <div class="end-heart">♥</div>
-              <div class="end-title">Forever <em>Begins</em></div>
-              <div class="end-sub">September 14, 2026</div>
-              <div class="end-quote">
+              <div class="end-title">
+                <span data-en="Forever " data-km="ស្នេហ៍">Forever </span
+                ><em data-en="Begins" data-km="ចាប់ផ្តើម">Begins</em>
+              </div>
+              <div
+                class="end-sub"
+                data-en="September 14, 2026"
+                data-km="១៤ កញ្ញា ២០២៦"
+              >
+                September 14, 2026
+              </div>
+              <div
+                class="end-quote"
+                data-en='"Now, surrounded by the people they love most, they invite you to witness the next beautiful chapter."'
+                data-km='"ក្នុងកាលៈទេសៈដ៏មានន័យនេះ អមដោយវត្តមានមនុស្សជាទីស្រឡាញ់បំផុត យើងខ្ញុំទាំងពីរ សូមគោរពអញ្ជើញលោកអ្នកចូលរួមធ្វើជាសាក្សី នៃទំព័រជីវិតថ្មីដ៏ស្រស់បំព្រងរបស់យើងខ្ញុំ។"'
+              >
                 "Now, surrounded by the people they love most, they invite you
                 to witness the next beautiful chapter."
               </div>
             </div>
             <div class="page-num-row">
               <button class="page-nav-btn" onclick="goToPage(2)">
-                <span class="nav-arrow">‹</span> Back
+                <span class="nav-arrow">‹</span>
+                <span data-en="Back" data-km="ត្រឡប់">Back</span>
               </button>
-              <span class="bpage-num">· 14 ·</span>
+              <span class="bpage-num">· 3 ·</span>
               <span></span>
             </div>
           </div>
         </div>
-
-        <!-- Dot indicators -->
         <div class="dot-nav">
           <button class="dot active" onclick="goToPage(1)" id="dot1"></button>
           <button class="dot" onclick="goToPage(2)" id="dot2"></button>
@@ -194,17 +467,42 @@
     </section>
 
     <section class="events" id="events">
-      <p class="section-label reveal">Join Us</p>
-      <h2 class="section-title reveal">Wedding <em>Events</em></h2>
+      <p
+        class="section-label reveal"
+        data-en="Join Us"
+        data-km="ចូលរួមជាមួយយើង"
+      >
+        Join Us
+      </p>
+      <h2 class="section-title reveal">
+        <span data-en="Wedding " data-km="ព្រឹត្តិការណ៍">Wedding </span
+        ><em data-en="Events" data-km="អាពាហ៍ពិពាហ៍">Events</em>
+      </h2>
       <div class="section-divider reveal"></div>
       <div class="events-grid">
         <div class="event-card reveal">
           <div class="event-icon">
             <img src="image/qr/flower1.png" alt="Rehearsal Dinner Icon" />
           </div>
-          <div class="event-name">Rehearsal Dinner</div>
-          <div class="event-date">September 13, 2026 · 7:00 PM</div>
-          <div class="event-detail">
+          <div
+            class="event-name"
+            data-en="Rehearsal Dinner"
+            data-km="ពិធីជប់លៀងរំលឹក"
+          >
+            Rehearsal Dinner
+          </div>
+          <div
+            class="event-date"
+            data-en="September 13, 2026 · 7:00 PM"
+            data-km="១៣ កញ្ញា ២០២៦ · ម៉ោង ៧ យប់"
+          >
+            September 13, 2026 · 7:00 PM
+          </div>
+          <div
+            class="event-detail"
+            data-en="Villa Medici Gardens<br/>Fiesole, Tuscany<br/><br/>A warm, intimate evening with close family and the wedding party. Cocktails at sunset."
+            data-km="វីឡា មេឌីស៊ី ការ្ឌិន<br/>ហ្វីសូលេ, តូស្កានី<br/><br/>ពេលល្ងាចដ៏ក្តៅ ជាមួយក្រុមគ្រួសារ និងក្រុមអ្នករៀបការ។"
+          >
             Villa Medici Gardens<br />Fiesole, Tuscany<br /><br />A warm,
             intimate evening with close family and the wedding party. Cocktails
             at sunset.
@@ -212,18 +510,50 @@
         </div>
         <div class="event-card reveal">
           <div class="event-icon">💍</div>
-          <div class="event-name">The Ceremony</div>
-          <div class="event-date">September 14, 2026 · 4:00 PM</div>
-          <div class="event-detail">
+          <div
+            class="event-name"
+            data-en="The Ceremony"
+            data-km="ពិធីអាពាហ៍ពិពាហ៍"
+          >
+            The Ceremony
+          </div>
+          <div
+            class="event-date"
+            data-en="September 14, 2026 · 4:00 PM"
+            data-km="១៤ កញ្ញា ២០២៦ · ម៉ោង ៤ រសៀល"
+          >
+            September 14, 2026 · 4:00 PM
+          </div>
+          <div
+            class="event-detail"
+            data-en="Castello di Ama<br/>Gaiole in Chianti<br/><br/>An outdoor ceremony in the vineyard followed by cocktails under the Tuscan sky."
+            data-km="កាស្ទែលូ ឌី អាម<br/>ហ្គៃអូល ឥន ជាន់ទី<br/><br/>ពិធីខាងក្រៅ នៅក្នុងចំការទំពាំង បន្ទាប់ដោយ ការរីករាយ ក្រោមអាកាស។"
+          >
             Castello di Ama<br />Gaiole in Chianti<br /><br />An outdoor
             ceremony in the vineyard followed by cocktails under the Tuscan sky.
           </div>
         </div>
         <div class="event-card reveal">
           <div class="event-icon">🥂</div>
-          <div class="event-name">The Reception</div>
-          <div class="event-date">September 14, 2026 · 7:00 PM</div>
-          <div class="event-detail">
+          <div
+            class="event-name"
+            data-en="The Reception"
+            data-km="ពិធីទទួលភ្ញៀវ"
+          >
+            The Reception
+          </div>
+          <div
+            class="event-date"
+            data-en="September 14, 2026 · 7:00 PM"
+            data-km="១៤ កញ្ញា ២០២៦ · ម៉ោង ៧ យប់"
+          >
+            September 14, 2026 · 7:00 PM
+          </div>
+          <div
+            class="event-detail"
+            data-en="Castello di Ama Grand Hall<br/>Gaiole in Chianti<br/><br/>Dinner, dancing, and celebrating until midnight. Black tie optional."
+            data-km="ព្រះបរមរាជវាំង ហ្គ្រាន់ ហ្ហល<br/>ហ្គៃអូល ឥន ជាន់ទី<br/><br/>អាហារពេលយប់ រាំ និងប្រារព្ធ រហូតដល់អធ្រាត្រ។"
+          >
             Castello di Ama Grand Hall<br />Gaiole in Chianti<br /><br />Dinner,
             dancing, and celebrating until midnight. Black tie optional.
           </div>
@@ -232,8 +562,13 @@
     </section>
 
     <section class="gallery" id="gallery">
-      <p class="section-label reveal">Memories</p>
-      <h2 class="section-title reveal">Our <em>Gallery</em></h2>
+      <p class="section-label reveal" data-en="Memories" data-km="ការចងចាំ">
+        Memories
+      </p>
+      <h2 class="section-title reveal">
+        <span data-en="Our " data-km="វិចិត្រសាល">Our </span
+        ><em data-en="Gallery" data-km="យើង">Gallery</em>
+      </h2>
       <div class="section-divider reveal"></div>
       <div class="gallery-grid reveal">
         <div class="gallery-item">
@@ -270,8 +605,17 @@
     </section>
 
     <section class="rsvp-section" id="location">
-      <p class="section-label reveal">Where & When</p>
-      <h2 class="section-title reveal">The <em>Location</em></h2>
+      <p
+        class="section-label reveal"
+        data-en="Where &amp; When"
+        data-km="កន្លែង &amp; ពេលវេលា"
+      >
+        Where &amp; When
+      </p>
+      <h2 class="section-title reveal">
+        <span data-en="The " data-km="ទីតាំង">The </span
+        ><em data-en="Location" data-km="ពិធី">Location</em>
+      </h2>
       <div class="section-divider reveal"></div>
       <div
         class="rsvp-form reveal"
@@ -297,21 +641,24 @@
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-          >
-          </iframe>
+          ></iframe>
         </div>
         <div id="address-details" style="text-align: center">
           <div style="margin-bottom: 2rem">
             <h3
               style="
-                font-family: &quot;Cormorant Garamond&quot;, serif;
+                font-family:
+                  &quot;Cormorant Garamond&quot;, &quot;Kantumruy Pro&quot;,
+                  serif;
                 font-size: 2.2rem;
                 color: #b8956a;
                 margin-bottom: 0.5rem;
                 font-weight: 500;
               "
             >
-              Sangkat Tonle Bassac
+              <span data-en="Sangkat Tonle Bassac" data-km="សង្កាត់ទន្លេបាសាក់">
+                Sangkat Tonle Bassac
+              </span>
             </h3>
             <p
               style="
@@ -319,10 +666,13 @@
                 line-height: 1.8;
                 color: #666;
                 font-size: 1rem;
-                letter-spacing: 0.5px;
               "
             >
-              Khan Chamkarmon, Phnom Penh<br />Kingdom of Cambodia
+              <span
+                data-en="Khan Chamkarmon, Phnom Penh<br/>Kingdom of Cambodia"
+                data-km="ខណ្ឌចំការមន, ភ្នំពេញ<br/>ព្រះរាជាណាចក្រកម្ពុជា"
+                >Khan Chamkarmon, Phnom Penh<br />Kingdom of Cambodia</span
+              >
             </p>
           </div>
           <div style="margin-bottom: 2.5rem">
@@ -336,6 +686,8 @@
                 font-weight: 500;
                 margin-bottom: 0.5px;
               "
+              data-en="Coordinates"
+              data-km="Coordinates"
             >
               Coordinates
             </p>
@@ -366,19 +718,29 @@
                 display: inline-block;
                 min-width: 200px;
               "
+              data-en="Open in Google Maps"
+              data-km="បើកក្នុង Google Maps"
+              >Open in Google Maps</a
             >
-              Open in Google Maps
-            </a>
           </div>
         </div>
       </div>
     </section>
 
     <section class="gift-section" id="gift">
-      <p class="section-label reveal">Send a Gift</p>
-      <h2 class="section-title reveal">Wedding <em>Gift</em></h2>
+      <p class="section-label reveal" data-en="Send a Gift" data-km="ផ្ញើអំណោយ">
+        Send a Gift
+      </p>
+      <h2 class="section-title reveal">
+        <span data-en="Wedding " data-km="អំណោយ">Wedding </span
+        ><em data-en="Gift" data-km="អាពាហ៍ពិពាហ៍">Gift</em>
+      </h2>
       <div class="section-divider reveal"></div>
-      <p class="gift-intro reveal">
+      <p
+        class="gift-intro reveal"
+        data-en="Your presence is the greatest gift of all. But if you'd like to contribute to our honeymoon or new home, you can send a gift digitally — quickly and easily via QR code."
+        data-km="វត្តមានរបស់អ្នក គឺជាអំណោយដ៏ប្រសើរបំផុត។ ប៉ុន្តែ ប្រសិនបើអ្នកចង់ចូលរួមចំណែក ដំណើរទេសចរណ៍ honeymoon ឬផ្ទះថ្មីរបស់យើង អ្នកអាចផ្ញើអំណោយ តាម QR Code — យ៉ាងលឿន ហើយងាយស្រួល។"
+      >
         Your presence is the greatest gift of all. But if you'd like to
         contribute to our honeymoon or new home, you can send a gift digitally —
         quickly and easily via QR code.
@@ -386,64 +748,130 @@
       <div class="qr-cards">
         <div class="qr-card reveal">
           <div class="qr-name">កូនស្រី</div>
-          <div class="qr-handle">KhQR · Crush</div>
+          <div class="qr-handle" data-en="KhQR · Crush" data-km="KhQR · ស្នេហា">
+            KhQR · Crush
+          </div>
           <div class="qr-box">
             <img
               src="/image/qr/qr1.jpg"
-              alt="QR Code Sarah"
+              alt="QR Code Crush"
               style="width: 100%; height: 100%; object-fit: cover"
             />
           </div>
-          <div class="qr-note">Scan to pay via KhQR</div>
-          <button class="qr-copy-btn" onclick="copyText('0964775515', this)">
+          <div
+            class="qr-note"
+            data-en="Scan to pay via KhQR"
+            data-km="ស្កែន ដើម្បីបង់ប្រាក់តាម KhQR"
+          >
+            Scan to pay via KhQR
+          </div>
+          <button
+            class="qr-copy-btn"
+            onclick="copyText('0964775515', this)"
+            data-en="Copy Account No."
+            data-km="ចម្លងលេខគណនី"
+          >
             Copy Account No.
           </button>
         </div>
         <div class="qr-card reveal">
           <div class="qr-name">កូនប្រុស</div>
-          <div class="qr-handle">KhQR · Me</div>
+          <div class="qr-handle" data-en="KhQR · Me" data-km="KhQR · ខ្ញុំ">
+            KhQR · Me
+          </div>
           <div class="qr-box">
             <img
               src="/image/qr/qr2.jpg"
-              alt="QR Code James"
+              alt="QR Code Me"
               style="width: 100%; height: 100%; object-fit: cover"
             />
           </div>
-          <div class="qr-note">Scan to pay via KhQR</div>
-          <button class="qr-copy-btn" onclick="copyText('0964775515', this)">
+          <div
+            class="qr-note"
+            data-en="Scan to pay via KhQR"
+            data-km="ស្កែន ដើម្បីបង់ប្រាក់តាម KhQR"
+          >
+            Scan to pay via KhQR
+          </div>
+          <button
+            class="qr-copy-btn"
+            onclick="copyText('0964775515', this)"
+            data-en="Copy Account No."
+            data-km="ចម្លងលេខគណនី"
+          >
             Copy Account No.
           </button>
         </div>
       </div>
       <div class="gift-bank reveal">
-        <div class="gift-bank-title">Bank Transfer Details</div>
-        <div class="bank-row">
-          <span class="bank-label">Account Name</span
-          ><span class="bank-val">Me & Crush</span>
+        <div
+          class="gift-bank-title"
+          data-en="Bank Transfer Details"
+          data-km="ព័ត៌មានផ្ទេរប្រាក់ធនាគារ"
+        >
+          Bank Transfer Details
         </div>
         <div class="bank-row">
-          <span class="bank-label">Account No.</span
-          ><span class="bank-val">000 1234 5678 90</span>
+          <span class="bank-label" data-en="Account Name" data-km="ឈ្មោះគណនី"
+            >Account Name</span
+          >
+          <span
+            class="bank-val"
+            data-en="Me &amp; Crush"
+            data-km="ខ្ញុំ &amp; ស្នេហា"
+            >Me &amp; Crush</span
+          >
         </div>
         <div class="bank-row">
-          <span class="bank-label">Bank</span
-          ><span class="bank-val">ABA Bank Cambodia</span>
+          <span class="bank-label" data-en="Account No." data-km="លេខគណនី"
+            >Account No.</span
+          >
+          <span class="bank-val">000 1234 5678 90</span>
         </div>
         <div class="bank-row">
-          <span class="bank-label">Currency</span
-          ><span class="bank-val">KHR / USD</span>
+          <span class="bank-label" data-en="Bank" data-km="ធនាគារ">Bank</span>
+          <span class="bank-val">ABA Bank Cambodia</span>
         </div>
         <div class="bank-row">
-          <span class="bank-label">Reference</span
-          ><span class="bank-val">Wedding Gift</span>
+          <span class="bank-label" data-en="Currency" data-km="រូបិយប័ណ្ណ"
+            >Currency</span
+          >
+          <span class="bank-val">KHR / USD</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label" data-en="Reference" data-km="សេចក្តីយោង"
+            >Reference</span
+          >
+          <span
+            class="bank-val"
+            data-en="Wedding Gift"
+            data-km="អំណោយអាពាហ៍ពិពាហ៍"
+            >Wedding Gift</span
+          >
         </div>
       </div>
     </section>
 
     <footer>
-      <div class="footer-names">Me & Crush</div>
-      <div class="footer-date">September 14, 2026 · Phnom Penh, Cambodia</div>
-      <div class="footer-note">
+      <div
+        class="footer-names"
+        data-en="Me &amp; Crush"
+        data-km="ខ្ញុំ &amp; ស្នេហា"
+      >
+        Me &amp; Crush
+      </div>
+      <div
+        class="footer-date"
+        data-en="September 14, 2026 · Phnom Penh, Cambodia"
+        data-km="១៤ កញ្ញា ២០២៦ · ភ្នំពេញ កម្ពុជា"
+      >
+        September 14, 2026 · Phnom Penh, Cambodia
+      </div>
+      <div
+        class="footer-note"
+        data-en="Made with love ♥ Please reach us at hello@meandcrush.com"
+        data-km="ធ្វើឡើងដោយស្នេហ៍ ♥ សូមទាក់ទងយើង hello@meandcrush.com"
+      >
         Made with love ♥ Please reach us at hello@meandcrush.com
       </div>
     </footer>
@@ -453,7 +881,13 @@
     </audio>
     <button class="music-btn" id="musicBtn" aria-label="Toggle music">
       <span class="music-icon" id="musicIcon">♪</span>
-      <span class="music-label" id="musicLabel">Play Music</span>
+      <span
+        class="music-label"
+        id="musicLabel"
+        data-en="Play Music"
+        data-km="ចាក់តន្ត្រី"
+        >Play Music</span
+      >
     </button>
     <button
       class="back-to-top"
